@@ -7,6 +7,7 @@ import com.petits_raids.northathleticfield.adapter.FragmentAdapter;
 import com.petits_raids.northathleticfield.fragment.AttendanceFragment;
 import com.petits_raids.northathleticfield.fragment.PersonFragment;
 import com.petits_raids.northathleticfield.fragment.SalaryFragment;
+import com.petits_raids.northathleticfield.view.TabView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
 
-    Button salaryBtn, attendanceBtn, personBtn;
+    TabView salaryBtn, attendanceBtn, personBtn;
 
     private FragmentAdapter adapter;
 

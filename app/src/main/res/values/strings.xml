@@ -7,4 +7,6 @@
     <string name="person_view">个人中心</string>
     <string name="attendance_view">出勤情况</string>
     <string name="salary_view">工资发放</string>
+    <string name="des_selected">tab选中状态</string>
+    <string name="des_background">tab背景</string>
 </resources>

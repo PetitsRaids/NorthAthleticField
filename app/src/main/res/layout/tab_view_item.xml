@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/tab_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/des_background" />
+
+        <ImageView
+            android:id="@+id/tab_selected"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/des_selected" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tab_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"
+        android:text="@string/login"
+        android:textSize="14sp" />
+
+</LinearLayout>

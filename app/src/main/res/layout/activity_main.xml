@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:petits_raids="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,34 +13,46 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorBlock" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
         android:orientation="horizontal">
 
-        <Button
+        <com.petits_raids.northathleticfield.view.TabView
             android:id="@+id/salary_btn"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/salary_view" />
+            petits_raids:tab_background="@drawable/attendance_background"
+            petits_raids:tab_selected="@drawable/attendance_selected"
+            petits_raids:tab_title="@string/attendance_view" />
 
-        <Button
+        <com.petits_raids.northathleticfield.view.TabView
             android:id="@+id/attendance_btn"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/attendance_view" />
+            petits_raids:tab_background="@drawable/salary_background"
+            petits_raids:tab_selected="@drawable/salary_selected"
+            petits_raids:tab_title="@string/salary_view" />
 
-        <Button
+        <com.petits_raids.northathleticfield.view.TabView
             android:id="@+id/person_btn"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/person_view" />
+            petits_raids:tab_background="@drawable/person_background"
+            petits_raids:tab_selected="@drawable/person_selected"
+            petits_raids:tab_title="@string/person_view" />
     </LinearLayout>
 
 </LinearLayout>
