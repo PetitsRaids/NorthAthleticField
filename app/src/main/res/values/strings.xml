@@ -6,7 +6,15 @@
     <string name="login_fail_mismatch">用户名或密码错误</string>
     <string name="person_view">个人中心</string>
     <string name="attendance_view">出勤情况</string>
-    <string name="salary_view">工资发放</string>
+    <string name="salary_view">薪资发放</string>
     <string name="des_selected">tab选中状态</string>
     <string name="des_background">tab背景</string>
+
+    <string name="check">签到</string>
+    <string name="checked">已签到</string>
+    <string name="des_head_portrait">用户头像</string>
+    <string name="basic_information">基础信息</string>
+    <string name="task_information">任务信息</string>
+    <string name="month_progress">本月进度</string>
+    <string name="task_progress">任务进度</string>
 </resources>

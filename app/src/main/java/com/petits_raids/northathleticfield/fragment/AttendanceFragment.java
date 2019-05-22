@@ -17,19 +17,16 @@ public class AttendanceFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Logger.d("onCreateView:" + "AttendanceFragment");
         return inflater.inflate(R.layout.attendance_view_layout, container, false);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Logger.d("onDestroyView:" + "AttendanceFragment");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Logger.d("onDestroy:" + "AttendanceFragment");
     }
 }

@@ -17,19 +17,16 @@ public class SalaryFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Logger.d("onCreateView:" + "SalaryFragment");
         return inflater.inflate(R.layout.salary_view_layout, container, false);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Logger.d("onDestroyView:" + "SalaryFragment");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Logger.d("onDestroy:" + "SalaryFragment");
     }
 }

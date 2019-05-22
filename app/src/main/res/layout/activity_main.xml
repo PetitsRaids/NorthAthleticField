@@ -18,41 +18,48 @@
         android:layout_height="1px"
         android:background="@color/colorBlock" />
 
-    <LinearLayout
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBackground"
-        android:orientation="horizontal">
+        android:layout_height="50dp">
 
-        <com.petits_raids.northathleticfield.view.TabView
-            android:id="@+id/salary_btn"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            petits_raids:tab_background="@drawable/attendance_background"
-            petits_raids:tab_selected="@drawable/attendance_selected"
-            petits_raids:tab_title="@string/attendance_view" />
+    </com.google.android.material.tabs.TabLayout>
 
-        <com.petits_raids.northathleticfield.view.TabView
-            android:id="@+id/attendance_btn"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            petits_raids:tab_background="@drawable/salary_background"
-            petits_raids:tab_selected="@drawable/salary_selected"
-            petits_raids:tab_title="@string/salary_view" />
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/colorBackground"-->
+        <!--android:orientation="horizontal">-->
 
-        <com.petits_raids.northathleticfield.view.TabView
-            android:id="@+id/person_btn"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            petits_raids:tab_background="@drawable/person_background"
-            petits_raids:tab_selected="@drawable/person_selected"
-            petits_raids:tab_title="@string/person_view" />
-    </LinearLayout>
+        <!--<com.petits_raids.northathleticfield.view.TabView-->
+            <!--android:id="@+id/salary_btn"-->
+            <!--style="?android:attr/buttonBarButtonStyle"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--petits_raids:tab_background="@drawable/attendance_background"-->
+            <!--petits_raids:tab_selected="@drawable/attendance_selected"-->
+            <!--petits_raids:tab_title="@string/attendance_view" />-->
+
+        <!--<com.petits_raids.northathleticfield.view.TabView-->
+            <!--android:id="@+id/attendance_btn"-->
+            <!--style="?android:attr/buttonBarButtonStyle"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--petits_raids:tab_background="@drawable/salary_background"-->
+            <!--petits_raids:tab_selected="@drawable/salary_selected"-->
+            <!--petits_raids:tab_title="@string/salary_view" />-->
+
+        <!--<com.petits_raids.northathleticfield.view.TabView-->
+            <!--android:id="@+id/person_btn"-->
+            <!--style="?android:attr/buttonBarButtonStyle"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--petits_raids:tab_background="@drawable/person_background"-->
+            <!--petits_raids:tab_selected="@drawable/person_selected"-->
+            <!--petits_raids:tab_title="@string/person_view" />-->
+    <!--</LinearLayout>-->
 
 </LinearLayout>
