@@ -10,4 +10,10 @@
         android:layout_gravity="center"
         android:text="@string/attendance_view" />
 
+    <com.haibin.calendarview.CalendarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.haibin.calendarview.CalendarView>
+
 </LinearLayout>
