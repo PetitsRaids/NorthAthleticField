@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <TextView
@@ -11,8 +12,10 @@
         android:text="@string/attendance_view" />
 
     <com.haibin.calendarview.CalendarView
+        android:id="@+id/calendarView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:month_view="com.petits_raids.northathleticfield.view.CheckedView">
 
     </com.haibin.calendarview.CalendarView>
 

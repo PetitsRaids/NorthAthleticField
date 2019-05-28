@@ -23,8 +23,8 @@ public class LoginActivity extends AppCompatActivity {
             String password = passwordET.getText().toString();
             if(true){
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
                 finish();
+                startActivity(intent);
             }else{
                 Toast.makeText(this, R.string.login_fail_mismatch, Toast.LENGTH_SHORT).show();
             }

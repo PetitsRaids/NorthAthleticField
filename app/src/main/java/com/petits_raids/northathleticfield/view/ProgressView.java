@@ -37,7 +37,6 @@ public class ProgressView extends View {
         super(context, attrs);
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.ProgressView);
         isMonth = array.getBoolean(R.styleable.ProgressView_isMonth, false);
-        Logger.d("状态:" + isMonth);
         array.recycle();
     }
 
