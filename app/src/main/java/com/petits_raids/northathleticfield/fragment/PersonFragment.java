@@ -31,6 +31,8 @@ public class PersonFragment extends Fragment {
 
     private ProgressView monthProgress, taskProgress;
 
+    private Button gotoChecked;
+
     private boolean isFirst = true;
 
     @Nullable
@@ -42,21 +44,28 @@ public class PersonFragment extends Fragment {
         categoryList.add("4");
         BasicInformationAdapter adapter = new BasicInformationAdapter(getContext(), categoryList);
         View view = inflater.inflate(R.layout.person_view_layout, container, false);
-        Button gotoChecked = view.findViewById(R.id.goto_check);
+        gotoChecked = view.findViewById(R.id.goto_check);
         gotoChecked.setOnClickListener(v -> {
             MainActivity mainActivity = (MainActivity) getActivity();
             mainActivity.gotoPager(0);
         });
+
         RecyclerView recyclerView = view.findViewById(R.id.person_recycler);
         recyclerView.setAdapter(adapter);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(RecyclerView.HORIZONTAL);
         recyclerView.setLayoutManager(manager);
+
         Button gotoEdit = view.findViewById(R.id.person_information_edit);
         gotoEdit.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), EditInfoActivity.class);
             startActivity(intent);
         });
+
+        if (MainActivity.isChecked){
+            gotoChecked.setText(R.string.checked);
+            gotoChecked.setClickable(false);
+        }
         monthProgress = view.findViewById(R.id.month_progress);
         taskProgress = view.findViewById(R.id.task_progress);
         return view;
@@ -93,5 +102,10 @@ public class PersonFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    void setChecked(){
+        gotoChecked.setText(R.string.checked);
+        gotoChecked.setClickable(false);
     }
 }

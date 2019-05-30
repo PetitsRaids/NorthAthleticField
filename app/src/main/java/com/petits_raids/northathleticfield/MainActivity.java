@@ -1,23 +1,26 @@
 package com.petits_raids.northathleticfield;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.petits_raids.northathleticfield.adapter.FragmentAdapter;
 import com.petits_raids.northathleticfield.fragment.AttendanceFragment;
 import com.petits_raids.northathleticfield.fragment.PersonFragment;
 import com.petits_raids.northathleticfield.fragment.SalaryFragment;
-import com.petits_raids.northathleticfield.utils.Logger;
+import com.petits_raids.northathleticfield.utils.CalenderUtils;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
 public class MainActivity extends AppCompatActivity {
+
+    public static boolean isChecked = false;
 
     private ViewPager viewPager;
 
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private List<Fragment> fragmentList = new ArrayList<>();
 
     private List<String> titleList = new ArrayList<>();
+
+    private SharedPreferences preferences;
 
 //    private List<TabView> tabViewList = new ArrayList<>();
 
@@ -49,7 +54,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
-
+        preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        long date = preferences.getLong("last_check_day", 0);
+        if (date == CalenderUtils.getNianYueRi()){
+            isChecked = true;
+        }
         adapter = new FragmentAdapter(MainActivity.this, getSupportFragmentManager(), fragmentList, titleList);
         viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(adapter);
@@ -94,7 +103,16 @@ public class MainActivity extends AppCompatActivity {
 //        });
     }
 
-    public void gotoPager(int num){
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    public void gotoPager(int num) {
         viewPager.setCurrentItem(num, true);
+    }
+
+    public Fragment getFragmentPage(int num) {
+        return adapter.getItem(num);
     }
 }

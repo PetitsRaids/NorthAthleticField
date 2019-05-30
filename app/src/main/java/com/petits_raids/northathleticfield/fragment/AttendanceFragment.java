@@ -1,10 +1,9 @@
 package com.petits_raids.northathleticfield.fragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -51,11 +50,30 @@ public class AttendanceFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         toolbar.inflateMenu(R.menu.check_menu);
-        toolbar.setOnMenuItemClickListener(item -> {
+        if (MainActivity.isChecked) {
+            setMenuChecked();
             Calendar calendar = getSchemeCalendar(year, month, CalenderUtils.getTodayDate(), 0xffee00ee, "签");
             calendarView.addSchemeDate(calendar);
             map.put(calendar.toString(), calendar);
-            Toast.makeText(getContext(), R.string.checked, Toast.LENGTH_SHORT).show();
+        }
+        toolbar.setOnMenuItemClickListener(item -> {
+            if (!MainActivity.isChecked) {
+                Calendar calendar = getSchemeCalendar(year, month, CalenderUtils.getTodayDate(), 0xffee00ee, "签");
+                calendarView.addSchemeDate(calendar);
+                map.put(calendar.toString(), calendar);
+                Toast.makeText(getContext(), R.string.checked, Toast.LENGTH_SHORT).show();
+                item.setTitle(R.string.checked);
+                SharedPreferences.Editor editor =
+                        PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+                editor.putLong("last_check_day", CalenderUtils.getNianYueRi());
+                editor.apply();
+                MainActivity.isChecked = true;
+                MainActivity mainActivity = (MainActivity) getActivity();
+                PersonFragment personFragment = (PersonFragment) mainActivity.getFragmentPage(2);
+                personFragment.setChecked();
+            } else {
+                Toast.makeText(getContext(), "已经签过到了，么么哒", Toast.LENGTH_SHORT).show();
+            }
             return true;
         });
     }
@@ -107,5 +125,9 @@ public class AttendanceFragment extends Fragment {
         calendar.addScheme(0xFF008800, "假");
         calendar.addScheme(0xFF008800, "节");
         return calendar;
+    }
+
+    private void setMenuChecked() {
+        toolbar.getMenu().getItem(0).setTitle(R.string.checked);
     }
 }

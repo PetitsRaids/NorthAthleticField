@@ -20,4 +20,12 @@ public class CalenderUtils {
     public static int getTodayMonth(){
         return calendar.get(Calendar.MONTH);
     }
+
+    public static int getTodayYear(){
+        return calendar.get(Calendar.YEAR);
+    }
+
+    public static long getNianYueRi(){
+        return getTodayYear() * 10000  + getTodayMonth() * 100 + getTodayDate();
+    }
 }
