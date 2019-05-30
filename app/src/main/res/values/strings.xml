@@ -11,10 +11,13 @@
     <string name="des_background">tab背景</string>
 
     <string name="check">签到</string>
+    <string name="goto_check">去签到</string>
     <string name="checked">已签到</string>
     <string name="des_head_portrait">用户头像</string>
     <string name="basic_information">基础信息</string>
     <string name="task_information">任务信息</string>
     <string name="month_progress">本月进度</string>
     <string name="task_progress">任务进度</string>
+
+    <string name="save">保存</string>
 </resources>

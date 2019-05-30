@@ -93,4 +93,8 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
     }
+
+    public void gotoPager(int num){
+        viewPager.setCurrentItem(num, true);
+    }
 }

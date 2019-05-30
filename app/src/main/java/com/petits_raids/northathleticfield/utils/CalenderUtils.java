@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public class CalenderUtils {
 
-//    private static Calendar calendar;
+    private static Calendar calendar = Calendar.getInstance();
 
     public static int getTotalDays(){
         Calendar calendar = Calendar.getInstance();
@@ -14,6 +14,10 @@ public class CalenderUtils {
     }
 
     public static int getTodayDate(){
-        return Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        return calendar.get(Calendar.DAY_OF_MONTH);
+    }
+
+    public static int getTodayMonth(){
+        return calendar.get(Calendar.MONTH);
     }
 }

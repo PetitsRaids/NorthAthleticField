@@ -5,11 +5,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/attendance_view" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/attendance_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ToolbarTheme">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/attendance_view"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <com.haibin.calendarview.CalendarView
         android:id="@+id/calendarView"
@@ -18,5 +28,4 @@
         app:month_view="com.petits_raids.northathleticfield.view.CheckedView">
 
     </com.haibin.calendarview.CalendarView>
-
 </LinearLayout>
