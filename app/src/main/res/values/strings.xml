@@ -4,15 +4,22 @@
     <string name="hint_password">请输入密码</string>
     <string name="login">登录</string>
     <string name="login_fail_mismatch">用户名或密码错误</string>
-    <string name="person_view">个人中心</string>
+
     <string name="attendance_view">出勤情况</string>
-    <string name="salary_view">薪资发放</string>
+    <string name="salary_view">信息查询</string>
+    <string name="person_view">个人中心</string>
+
     <string name="des_selected">tab选中状态</string>
     <string name="des_background">tab背景</string>
 
     <string name="check">签到</string>
     <string name="goto_check">去签到</string>
     <string name="checked">已签到</string>
+
+    <string name="search">搜索</string>
+    <string name="hint_search">在此输入查询的内容</string>
+    <string name="des_search_logo">搜索logo</string>
+
     <string name="des_head_portrait">用户头像</string>
     <string name="basic_information">基础信息</string>
     <string name="task_information">任务信息</string>

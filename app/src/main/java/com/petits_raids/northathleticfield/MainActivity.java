@@ -12,7 +12,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.petits_raids.northathleticfield.adapter.FragmentAdapter;
 import com.petits_raids.northathleticfield.fragment.AttendanceFragment;
 import com.petits_raids.northathleticfield.fragment.PersonFragment;
-import com.petits_raids.northathleticfield.fragment.SalaryFragment;
+import com.petits_raids.northathleticfield.fragment.SearchFragment;
 import com.petits_raids.northathleticfield.utils.CalenderUtils;
 
 import java.util.ArrayList;
@@ -34,17 +34,15 @@ public class MainActivity extends AppCompatActivity {
 
     private List<String> titleList = new ArrayList<>();
 
-    private SharedPreferences preferences;
-
 //    private List<TabView> tabViewList = new ArrayList<>();
 
     {
         fragmentList.add(new AttendanceFragment());
-        fragmentList.add(new SalaryFragment());
+        fragmentList.add(new SearchFragment());
         fragmentList.add(new PersonFragment());
 
         titleList.add("出勤情况");
-        titleList.add("薪资发放");
+        titleList.add("信息查询");
         titleList.add("个人中心");
     }
 
@@ -54,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
-        preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         long date = preferences.getLong("last_check_day", 0);
         if (date == CalenderUtils.getNianYueRi()){
             isChecked = true;
