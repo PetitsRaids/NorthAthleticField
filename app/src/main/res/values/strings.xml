@@ -15,6 +15,7 @@
     <string name="check">签到</string>
     <string name="goto_check">去签到</string>
     <string name="checked">已签到</string>
+    <string name="checked_hint">已经签过到了，么么哒</string>
 
     <string name="search">搜索</string>
     <string name="hint_search">在此输入查询的内容</string>
@@ -22,9 +23,20 @@
 
     <string name="des_head_portrait">用户头像</string>
     <string name="basic_information">基础信息</string>
+    <string name="des_category">信息种类logo</string>
     <string name="task_information">任务信息</string>
     <string name="month_progress">本月进度</string>
     <string name="task_progress">任务进度</string>
 
+    <string name="phone">手机：</string>
+    <string name="hint_phone">在此输入手机号</string>
+    <string name="email">邮箱：</string>
+    <string name="hint_email">在此输入邮箱</string>
+    <string name="dept">部门</string>
+    <string name="hint_dept">在此输入部门名称</string>
+    <string name="qq">QQ：</string>
+    <string name="hint_qq">在此输入QQ号</string>
+    <string name="hobby">爱好：</string>
+    <string name="hint_hobby">在此输入爱好</string>
     <string name="save">保存</string>
 </resources>

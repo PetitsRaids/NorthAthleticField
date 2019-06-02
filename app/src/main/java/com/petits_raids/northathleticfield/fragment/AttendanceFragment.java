@@ -30,6 +30,10 @@ public class AttendanceFragment extends Fragment {
 
     private Map<String, Calendar> map = new HashMap<>();
 
+    private SharedPreferences sharedPreferences;
+
+    private String allCheckedDays;
+
     private int year;
 
     private int month;
@@ -52,56 +56,50 @@ public class AttendanceFragment extends Fragment {
         toolbar.inflateMenu(R.menu.check_menu);
         if (MainActivity.isChecked) {
             setMenuChecked();
-            Calendar calendar = getSchemeCalendar(year, month, CalenderUtils.getTodayDate(), 0xffee00ee, "签");
-            calendarView.addSchemeDate(calendar);
-            map.put(calendar.toString(), calendar);
         }
         toolbar.setOnMenuItemClickListener(item -> {
             if (!MainActivity.isChecked) {
-                Calendar calendar = getSchemeCalendar(year, month, CalenderUtils.getTodayDate(), 0xffee00ee, "签");
+                Calendar calendar = getSchemeCalendar(year, calendarView.getCurMonth(), calendarView.getCurDay(), 0xffee00ee, "签");
                 calendarView.addSchemeDate(calendar);
                 map.put(calendar.toString(), calendar);
                 Toast.makeText(getContext(), R.string.checked, Toast.LENGTH_SHORT).show();
                 item.setTitle(R.string.checked);
-                SharedPreferences.Editor editor =
-                        PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putLong("last_check_day", CalenderUtils.getNianYueRi());
+                if (month != calendarView.getCurMonth()) {
+                    editor.putInt("month", calendarView.getCurMonth());
+                    editor.putString("days", String.valueOf(calendarView.getCurDay()));
+                } else {
+                    editor.putString("days", allCheckedDays + "," + calendarView.getCurDay());
+                }
                 editor.apply();
                 MainActivity.isChecked = true;
                 MainActivity mainActivity = (MainActivity) getActivity();
                 PersonFragment personFragment = (PersonFragment) mainActivity.getFragmentPage(2);
                 personFragment.setChecked();
             } else {
-                Toast.makeText(getContext(), "已经签过到了，么么哒", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.checked_hint, Toast.LENGTH_SHORT).show();
             }
             return true;
         });
     }
 
     private void initData() {
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         year = calendarView.getCurYear();
-        month = calendarView.getCurMonth();
-
-        map.put(getSchemeCalendar(year, month, 3, 0xFF40db25, "假").toString(),
-                getSchemeCalendar(year, month, 3, 0xFF40db25, "假"));
-        map.put(getSchemeCalendar(year, month, 6, 0xFFe69138, "事").toString(),
-                getSchemeCalendar(year, month, 6, 0xFFe69138, "事"));
-        map.put(getSchemeCalendar(year, month, 9, 0xFFdf1356, "议").toString(),
-                getSchemeCalendar(year, month, 9, 0xFFdf1356, "议"));
-        map.put(getSchemeCalendar(year, month, 13, 0xFFedc56d, "记").toString(),
-                getSchemeCalendar(year, month, 13, 0xFFedc56d, "记"));
-        map.put(getSchemeCalendar(year, month, 14, 0xFFedc56d, "记").toString(),
-                getSchemeCalendar(year, month, 14, 0xFFedc56d, "记"));
-        map.put(getSchemeCalendar(year, month, 15, 0xFFaacc44, "假").toString(),
-                getSchemeCalendar(year, month, 15, 0xFFaacc44, "假"));
-        map.put(getSchemeCalendar(year, month, 18, 0xFFbc13f0, "记").toString(),
-                getSchemeCalendar(year, month, 18, 0xFFbc13f0, "记"));
-        map.put(getSchemeCalendar(year, month, 25, 0xFF13acf0, "假").toString(),
-                getSchemeCalendar(year, month, 25, 0xFF13acf0, "假"));
-        map.put(getSchemeCalendar(year, month, 27, 0xFF13acf0, "多").toString(),
-                getSchemeCalendar(year, month, 27, 0xFF13acf0, "多"));
-        //此方法在巨大的数据量上不影响遍历性能，推荐使用
-        calendarView.setSchemeDate(map);
+        month = sharedPreferences.getInt("month", -1);
+        if (month != -1) {
+            allCheckedDays = sharedPreferences.getString("days", "");
+            String[] days = allCheckedDays.split(",");
+            if (days.length > 0) {
+                for (String day : days) {
+                    map.put(getSchemeCalendar(year, month, Integer.parseInt(day), 0xffee00ee, "签").toString(),
+                            getSchemeCalendar(year, month, Integer.parseInt(day), 0xffee00ee, "签"));
+                }
+                //此方法在巨大的数据量上不影响遍历性能，推荐使用
+                calendarView.setSchemeDate(map);
+            }
+        }
     }
 
     @Override
@@ -122,8 +120,8 @@ public class AttendanceFragment extends Fragment {
         calendar.setSchemeColor(color);//如果单独标记颜色、则会使用这个颜色
         calendar.setScheme(text);
         calendar.addScheme(new Calendar.Scheme());
-        calendar.addScheme(0xFF008800, "假");
-        calendar.addScheme(0xFF008800, "节");
+//        calendar.addScheme(0xFF008800, "假");
+//        calendar.addScheme(0xFF008800, "节");
         return calendar;
     }
 

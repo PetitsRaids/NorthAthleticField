@@ -15,24 +15,84 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <EditText
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:layout_margin="5dp"
+        android:text="@string/phone"
+        android:textSize="16sp" />
 
     <EditText
+        android:id="@+id/phone_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:ellipsize="end"
+        android:hint="@string/hint_phone"
+        android:inputType="phone"
+        android:maxLines="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/email"
+        android:textSize="16sp" />
 
     <EditText
+        android:id="@+id/email_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:ellipsize="end"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
+        android:maxLines="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/dept"
+        android:textSize="16sp" />
 
     <EditText
+        android:id="@+id/dept_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:ellipsize="end"
+        android:hint="@string/hint_dept"
+        android:inputType="text"
+        android:maxLines="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/qq"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/qq_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:hint="@string/hint_qq"
+        android:inputType="numberDecimal"
+        android:maxLines="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/hobby"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/hobby_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:hint="@string/hint_hobby"
+        android:inputType="text"
+        android:maxLines="1" />
 
 </LinearLayout>

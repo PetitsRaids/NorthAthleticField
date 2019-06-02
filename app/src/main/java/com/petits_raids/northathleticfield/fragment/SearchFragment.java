@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.petits_raids.northathleticfield.R;
-import com.petits_raids.northathleticfield.utils.Logger;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,7 +18,7 @@ public class SearchFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.salary_view_layout, container, false);
+        View view = inflater.inflate(R.layout.search_view_layout, container, false);
         Toolbar toolbar = view.findViewById(R.id.search_toolbar);
 
         setHasOptionsMenu(true);

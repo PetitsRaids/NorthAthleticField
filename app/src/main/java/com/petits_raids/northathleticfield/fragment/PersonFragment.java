@@ -2,7 +2,9 @@ package com.petits_raids.northathleticfield.fragment;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +33,10 @@ public class PersonFragment extends Fragment {
 
     private ProgressView monthProgress, taskProgress;
 
+    private SharedPreferences preferences;
+
+    private BasicInformationAdapter adapter;
+
     private Button gotoChecked;
 
     private boolean isFirst = true;
@@ -38,11 +44,10 @@ public class PersonFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        categoryList.add("1");
-        categoryList.add("2");
-        categoryList.add("3");
-        categoryList.add("4");
-        BasicInformationAdapter adapter = new BasicInformationAdapter(getContext(), categoryList);
+        preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        updateInfo();
+        adapter = new BasicInformationAdapter(getContext(), categoryList,
+                new int[]{R.drawable.phone, R.drawable.email, R.drawable.dept, R.drawable.qq, R.drawable.hobby});
         View view = inflater.inflate(R.layout.person_view_layout, container, false);
         gotoChecked = view.findViewById(R.id.goto_check);
         gotoChecked.setOnClickListener(v -> {
@@ -74,6 +79,8 @@ public class PersonFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        updateInfo();
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -107,5 +114,14 @@ public class PersonFragment extends Fragment {
     void setChecked(){
         gotoChecked.setText(R.string.checked);
         gotoChecked.setClickable(false);
+    }
+
+    private void updateInfo(){
+        categoryList.clear();
+        categoryList.add(preferences.getString("phone", ""));
+        categoryList.add(preferences.getString("email", ""));
+        categoryList.add(preferences.getString("dept", ""));
+        categoryList.add(preferences.getString("qq", ""));
+        categoryList.add(preferences.getString("hobby", ""));
     }
 }

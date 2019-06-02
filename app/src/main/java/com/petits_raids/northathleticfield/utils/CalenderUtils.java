@@ -6,26 +6,26 @@ public class CalenderUtils {
 
     private static Calendar calendar = Calendar.getInstance();
 
-    public static int getTotalDays(){
+    public static int getTotalDays() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1,1);
+        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, 1);
         calendar.setTimeInMillis(calendar.getTimeInMillis() - 24 * 60 * 60 * 1000);
         return calendar.get(Calendar.DAY_OF_MONTH);
     }
 
-    public static int getTodayDate(){
+    public static int getTodayDate() {
         return calendar.get(Calendar.DAY_OF_MONTH);
     }
 
-    public static int getTodayMonth(){
+    public static int getTodayMonth() {
         return calendar.get(Calendar.MONTH);
     }
 
-    public static int getTodayYear(){
+    public static int getTodayYear() {
         return calendar.get(Calendar.YEAR);
     }
 
-    public static long getNianYueRi(){
-        return getTodayYear() * 10000  + getTodayMonth() * 100 + getTodayDate();
+    public static long getNianYueRi() {
+        return getTodayYear() * 10000 + getTodayMonth() * 100 + 100 + getTodayDate();
     }
 }

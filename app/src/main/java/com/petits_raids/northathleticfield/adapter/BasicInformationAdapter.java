@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.petits_raids.northathleticfield.R;
 
 import java.util.List;
@@ -19,13 +21,17 @@ public class BasicInformationAdapter extends RecyclerView.Adapter<BasicInformati
 
     private List<String> categoryList;
 
-    public BasicInformationAdapter(Context context, List<String> categoryList){
+    private int[] imageRes;
+
+    public BasicInformationAdapter(Context context, List<String> categoryList, int[] imageRes){
         this.context = context;
         this.categoryList = categoryList;
+        this.imageRes = imageRes;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        TextView category, specific;
+        ImageView category;
+        TextView specific;
         ViewHolder(View view){
             super(view);
             category = view.findViewById(R.id.category);
@@ -42,7 +48,7 @@ public class BasicInformationAdapter extends RecyclerView.Adapter<BasicInformati
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.category.setText(categoryList.get(position));
+        holder.category.setImageResource(imageRes[position]);
         holder.specific.setText(categoryList.get(position));
     }
 

@@ -18,14 +18,16 @@
 
         <Button
             android:id="@+id/person_information_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"/>
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:background="@drawable/edit" />
     </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/person_recycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" />
 
 </LinearLayout>
