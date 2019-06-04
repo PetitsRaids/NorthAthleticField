@@ -20,6 +20,7 @@
     <string name="search">搜索</string>
     <string name="hint_search">在此输入查询的内容</string>
     <string name="des_search_logo">搜索logo</string>
+    <string name="request_error">访问错误，请检查网络</string>
 
     <string name="des_head_portrait">用户头像</string>
     <string name="basic_information">基础信息</string>
@@ -28,15 +29,20 @@
     <string name="month_progress">本月进度</string>
     <string name="task_progress">任务进度</string>
 
+    <string name="name">姓名：</string>
     <string name="phone">手机：</string>
     <string name="hint_phone">在此输入手机号</string>
     <string name="email">邮箱：</string>
     <string name="hint_email">在此输入邮箱</string>
-    <string name="dept">部门</string>
+    <string name="dept">部门：</string>
     <string name="hint_dept">在此输入部门名称</string>
+    <string name="job">职位：</string>
     <string name="qq">QQ：</string>
     <string name="hint_qq">在此输入QQ号</string>
     <string name="hobby">爱好：</string>
     <string name="hint_hobby">在此输入爱好</string>
+    <string name="birthday">生日：</string>
     <string name="save">保存</string>
+
+    <string name="employee_info">详细信息</string>
 </resources>

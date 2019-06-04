@@ -13,6 +13,16 @@ public class Logger {
     public static void d(String message) {
         if (!isDebug)
             return;
-        Log.d(TAG, message);
+        if (message == null){
+            Log.d(TAG, "！！！空指针！！！");
+        }else {
+            Log.d(TAG, message);
+        }
+    }
+
+    public static void d(int message){
+        if (!isDebug)
+            return;
+        Log.d(TAG, String.valueOf(message));
     }
 }
