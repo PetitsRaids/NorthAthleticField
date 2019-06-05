@@ -6,7 +6,7 @@
     <string name="login_fail_mismatch">用户名或密码错误</string>
 
     <string name="attendance_view">出勤情况</string>
-    <string name="salary_view">信息查询</string>
+    <string name="search_view">信息查询</string>
     <string name="person_view">个人中心</string>
 
     <string name="des_selected">tab选中状态</string>

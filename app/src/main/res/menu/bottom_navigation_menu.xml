@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/attendance_view"
+        android:icon="@drawable/attendance_background"
+        android:title="@string/attendance_view" />
+
+    <item
+        android:id="@+id/search_view"
+        android:icon="@drawable/seach"
+        android:title="@string/search_view" />
+
+    <item
+        android:id="@+id/person_view"
+        android:icon="@drawable/person_background"
+        android:title="@string/person_view" />
+</menu>

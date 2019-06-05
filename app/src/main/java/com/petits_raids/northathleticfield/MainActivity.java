@@ -3,12 +3,13 @@ package com.petits_raids.northathleticfield;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.petits_raids.northathleticfield.adapter.FragmentAdapter;
 import com.petits_raids.northathleticfield.fragment.AttendanceFragment;
 import com.petits_raids.northathleticfield.fragment.PersonFragment;
@@ -24,17 +25,15 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
 
-    TabLayout tabLayout;
+    BottomNavigationView bottomNavigationView;
 
-//    TabView salaryBtn, attendanceBtn, personBtn, leftTabView, rightTabView;
+    MenuItem menuItem;
 
     private FragmentAdapter adapter;
 
     private List<Fragment> fragmentList = new ArrayList<>();
 
     private List<String> titleList = new ArrayList<>();
-
-//    private List<TabView> tabViewList = new ArrayList<>();
 
     {
         fragmentList.add(new AttendanceFragment());
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         init();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         long date = preferences.getLong("last_check_day", 0);
-        if (date == CalenderUtils.getNianYueRi()){
+        if (date == CalenderUtils.getNianYueRi()) {
             isChecked = true;
         }
         adapter = new FragmentAdapter(MainActivity.this, getSupportFragmentManager(), fragmentList, titleList);
@@ -64,41 +63,46 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         viewPager = findViewById(R.id.view_pager);
-        tabLayout = findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setTabMode(TabLayout.MODE_FIXED);
-//        attendanceBtn = findViewById(R.id.attendance_btn);
-//        salaryBtn = findViewById(R.id.salary_btn);
-//        personBtn = findViewById(R.id.person_btn);
-//        tabViewList.add(attendanceBtn);
-//        tabViewList.add(salaryBtn);
-//        tabViewList.add(personBtn);
-//        attendanceBtn.setOnClickListener(v -> viewPager.setCurrentItem(1, true));
-//        salaryBtn.setOnClickListener(v -> viewPager.setCurrentItem(0, true));
-//        personBtn.setOnClickListener(v -> viewPager.setCurrentItem(2, true));
-//        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//                Logger.d("onPageScrolled 位置："+ position);
-//                Logger.d("positionOffset："+ positionOffset);
-//
-//                if(positionOffset > 0){
-//                    leftTabView = tabViewList.get(position);
-//                    rightTabView = tabViewList.get(position + 1);
-//                    leftTabView.setProgress(1 - positionOffset);
-//                    rightTabView.setProgress(positionOffset);
-//                }
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//            }
-//        });
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (menuItem != null) {
+                    menuItem.setChecked(false);
+                } else {
+                    bottomNavigationView.getMenu().getItem(0).setChecked(false);
+                }
+                menuItem = bottomNavigationView.getMenu().getItem(position);
+                menuItem.setChecked(true);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.attendance_view:
+                    viewPager.setCurrentItem(0, true);
+                    break;
+                case R.id.search_view:
+                    viewPager.setCurrentItem(1, true);
+                    break;
+                case R.id.person_view:
+                    viewPager.setCurrentItem(2, true);
+                    break;
+                default:
+                    break;
+            }
+            return true;
+        });
     }
 
     @Override
