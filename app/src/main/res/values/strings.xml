@@ -21,6 +21,7 @@
     <string name="hint_search">在此输入查询的内容</string>
     <string name="des_search_logo">搜索logo</string>
     <string name="request_error">访问错误，请检查网络</string>
+    <string name="data_update">数据已更新</string>
 
     <string name="des_head_portrait">用户头像</string>
     <string name="basic_information">基础信息</string>

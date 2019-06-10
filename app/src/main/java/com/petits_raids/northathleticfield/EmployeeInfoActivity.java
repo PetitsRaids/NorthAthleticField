@@ -44,7 +44,7 @@ public class EmployeeInfoActivity extends AppCompatActivity {
         dept.setText(employee.getDept().getName());
         job.setText(employee.getJob().getName());
         hobby.setText(employee.getHobby());
-        birthday.setText(employee.getBirthday());
+        birthday.setText(checkString(employee.getBirthday()));
 
         phone.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         phone.getPaint().setAntiAlias(true);
@@ -68,5 +68,13 @@ public class EmployeeInfoActivity extends AppCompatActivity {
             finish();
         }
         return true;
+    }
+
+    private String checkString(String str) {
+        if (str != null) {
+            return str.split(" ")[0];
+        } else {
+            return "";
+        }
     }
 }

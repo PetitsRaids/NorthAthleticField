@@ -18,7 +18,7 @@ public class CalenderUtils {
     }
 
     public static int getTodayMonth() {
-        return calendar.get(Calendar.MONTH);
+        return calendar.get(Calendar.MONTH) + 1;
     }
 
     public static int getTodayYear() {
@@ -26,6 +26,6 @@ public class CalenderUtils {
     }
 
     public static long getNianYueRi() {
-        return getTodayYear() * 10000 + getTodayMonth() * 100 + 100 + getTodayDate();
+        return getTodayYear() * 10000 + getTodayMonth() * 100 + getTodayDate();
     }
 }
