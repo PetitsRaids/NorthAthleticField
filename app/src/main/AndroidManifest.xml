@@ -12,11 +12,11 @@
         android:roundIcon="@mipmap/north_playground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".SearchActivity"/>
         <activity android:name=".EmployeeInfoActivity" />
         <activity android:name=".EditInfoActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -21,6 +21,7 @@ public class EmployeeInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_info);
+
         Toolbar toolbar = findViewById(R.id.employee_info_toolbar);
         toolbar.setTitle(R.string.employee_info);
         setSupportActionBar(toolbar);
